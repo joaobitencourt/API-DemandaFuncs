@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\DepartamentoController;
+use App\Http\Controllers\api\FuncionarioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +15,7 @@ Route::get('/', function () {
 //Departamento
 
 Route::apiResource('departamentos', DepartamentoController::class);
+
+//Funcionarios
+
+Route::apiResource('funcionarios', FuncionarioController::class);

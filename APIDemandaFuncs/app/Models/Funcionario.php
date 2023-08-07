@@ -14,6 +14,7 @@ class Funcionario extends Model
         'lastName',
         'email',
         'phone',
+        'department_id',
     ];
 
     //(1,1)

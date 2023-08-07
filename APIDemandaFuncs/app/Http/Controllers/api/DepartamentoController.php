@@ -26,7 +26,6 @@ class DepartamentoController extends Controller
     public function store(StoreUpdateDepartamentoRequest $request)
     {
         $data = $request->all();
-        $data['password'] = bcrypt($request->password);
 
         $departamento = $this->departamento->create($data);
 
