@@ -41,4 +41,17 @@ class TarefasController extends Controller
         return new TarefasResource($tarefa);
 
     }
+
+     //Update expecific tarefa
+     public function update(StoreUpadateTarefasRequests $request, string $id){
+        $tarefa = $this->tarefa->findOrFail($id);
+
+        $data = $request->validated();
+        $data ['due_date'] = Carbon::make($request->due_date)->format('Y-m-d');
+        $tarefa->update($data);
+
+        return new TarefasResource($tarefa);
+
+    }
+
 }

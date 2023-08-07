@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpadateTarefasRequests extends FormRequest
 {
@@ -27,6 +28,15 @@ class StoreUpadateTarefasRequests extends FormRequest
             'assignee_id' => 'required|min:1|max:255',
             'due_date' => 'nullable|date',
         ];
+
+        // if($this->method() === 'PATCH'){
+        //     $rules['assignee_id'] = [
+        //         'required',
+        //         'min:1',
+        //         'max:255',
+        //         Rule::unique('funcionarios')->ignore($this->id),
+        //     ];
+        // }
 
         return $rules;
 
