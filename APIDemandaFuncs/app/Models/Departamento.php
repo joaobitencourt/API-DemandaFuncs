@@ -12,7 +12,7 @@ class Departamento extends Model
         'name',
     ];
 
-    //1:n
+    //(1,n)
     public function funcionarios(){
 
         return $this->hasMany(Funcionario::class);
