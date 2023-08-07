@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUpdateDepartamentoRequest;
 use App\Http\Resources\DepartamentosResource;
 use \App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class DepartamentoController extends Controller
 {
@@ -14,12 +15,14 @@ class DepartamentoController extends Controller
     {
     }
 
+    //show all departments
     public function index()
     {
         $departamentos = $this->departamento->paginate();
         return DepartamentosResource::collection($departamentos);
     }
 
+    //create an department
     public function store(StoreUpdateDepartamentoRequest $request)
     {
         $data = $request->all();
@@ -30,11 +33,18 @@ class DepartamentoController extends Controller
         return new DepartamentosResource($departamento);
     }
 
+    //show expecific department
     public function show(string $id)
     {
         $departamento = $this->departamento->findOrFail($id);
         return new DepartamentosResource($departamento);
 
+    }
+
+    //Delete expecific department
+    public function destroy(string $id){
+        $this->departamento->findOrFail($id)->delete();
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 
 }
