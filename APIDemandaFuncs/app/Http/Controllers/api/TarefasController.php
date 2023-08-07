@@ -8,6 +8,7 @@ use App\Http\Resources\TarefasResource;
 use App\Models\Tarefa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TarefasController extends Controller
 {
@@ -52,6 +53,12 @@ class TarefasController extends Controller
 
         return new TarefasResource($tarefa);
 
+    }
+
+    //Delete expecific tarefas
+    public function destroy(string $id){
+        $this->tarefa->findOrFail($id)->delete();
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 
 }
