@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpadateTarefasRequests;
 use App\Http\Resources\TarefasResource;
 use App\Models\Tarefa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TarefasController extends Controller
@@ -18,5 +20,16 @@ class TarefasController extends Controller
     {
         $tarefas = $this->tarefa->paginate();
         return TarefasResource::collection($tarefas);
+    }
+
+    //create an funcionario
+    public function store(StoreUpadateTarefasRequests $request)
+    {
+        $data = $request->all();
+        $data ['due_date'] = Carbon::make($request->due_date)->format('Y-m-d');
+
+        $tarefa = $this->tarefa->create($data);
+
+        return new TarefasResource($tarefa);
     }
 }
