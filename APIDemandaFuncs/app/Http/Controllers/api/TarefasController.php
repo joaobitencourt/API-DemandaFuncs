@@ -22,7 +22,7 @@ class TarefasController extends Controller
         return TarefasResource::collection($tarefas);
     }
 
-    //create an funcionario
+    //create an Tarefas
     public function store(StoreUpadateTarefasRequests $request)
     {
         $data = $request->all();
@@ -31,5 +31,14 @@ class TarefasController extends Controller
         $tarefa = $this->tarefa->create($data);
 
         return new TarefasResource($tarefa);
+    }
+
+    //show expecific tarefa
+    public function show(string $id)
+    {
+        
+        $tarefa = $this->tarefa->findOrFail($id);
+        return new TarefasResource($tarefa);
+
     }
 }

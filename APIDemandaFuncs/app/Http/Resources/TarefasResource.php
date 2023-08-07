@@ -20,7 +20,7 @@ class TarefasResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'assignee_id' => $this->assignee_id,
-            'due_date' => Carbon::make($this->due_date)->format('Y-m-d'),
+            // 'due_date' => Carbon::make($this->due_date)->format('Y-m-d'),
             'created' => Carbon::make($this->created_at)->format('Y-m-d'),
         ];
     }
