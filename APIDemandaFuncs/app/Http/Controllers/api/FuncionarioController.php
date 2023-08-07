@@ -29,4 +29,24 @@ class FuncionarioController extends Controller
         $funcionario = $this->funcionario->create($data);
         return new FuncionariosResource($funcionario);
     }
+
+    //show expecific department
+    public function show(string $id)
+    {
+        $funcionario = $this->funcionario->findOrFail($id);
+        return new FuncionariosResource($funcionario);
+
+    }
+
+    //Update expecific department
+    public function update(StoreUpdateFuncionariosRequest $request, string $id){
+        $funcionario = $this->funcionario->findOrFail($id);
+
+        $data = $request->validated();
+
+        $funcionario->update($data);
+
+        return new FuncionariosResource($funcionario);
+
+    }
 }

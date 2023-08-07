@@ -45,9 +45,7 @@ class DepartamentoController extends Controller
         $departamento = $this->departamento->findOrFail($id);
 
         $data = $request->validated();
-        if($request->password){
-            $data['password'] = bcrypt($request->password);
-        }
+
         $departamento->update($data);
 
         return new DepartamentosResource($departamento);

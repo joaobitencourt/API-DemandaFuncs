@@ -17,7 +17,7 @@ class FuncionariosResource extends JsonResource
     {
         return [
             'identify' => $this->id,
-            'firstName' => $this->name,
+            'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'email' => $this->email,
             'phone' => $this->phone,
