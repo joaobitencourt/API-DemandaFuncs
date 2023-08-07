@@ -11,4 +11,12 @@ class Departamento extends Model
     protected $fillable =[
         'name',
     ];
+
+    //1:n
+    public function funcionarios(){
+
+        return $this->hasMany(Funcionario::class);
+
+    }
+
 }

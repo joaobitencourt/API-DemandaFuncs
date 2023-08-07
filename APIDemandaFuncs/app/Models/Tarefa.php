@@ -14,4 +14,11 @@ class Tarefa extends Model
         'due_date',
     ];
 
+    //1:1
+    public function funcionario(){
+
+        return $this->hasOne(Funcionario::class);
+
+    }
+
 }

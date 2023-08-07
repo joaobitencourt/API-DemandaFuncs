@@ -16,4 +16,18 @@ class Funcionario extends Model
         'phone',
     ];
 
+    //n:1
+    public function departament(){
+
+        return $this->belongsTo(Departamento::class);
+
+    }
+
+    //1:n
+    public function tarefas(){
+
+        return $this->hasMany(Tarefa::class);
+
+    }
+
 }
