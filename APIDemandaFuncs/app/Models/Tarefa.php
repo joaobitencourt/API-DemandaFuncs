@@ -11,6 +11,7 @@ class Tarefa extends Model
     protected $fillable =[
         'title',
         'description',
+        'assignee_id',
         'due_date',
     ];
 
