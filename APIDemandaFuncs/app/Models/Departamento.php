@@ -9,7 +9,7 @@ class Departamento extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'name',
+        'name'
     ];
 
     //(1,n)

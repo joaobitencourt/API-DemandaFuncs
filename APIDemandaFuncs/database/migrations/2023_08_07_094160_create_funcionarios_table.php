@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName')->nullable(false)->change();
-            $table->string('lastName')->nullable(false)->change();
+            $table->string('firstName')->nullable(false);
+            $table->string('lastName')->nullable(false);
             $table->string('email')->nullable(false)->unique();
             $table->string('phone')->nullable();
             $table->foreignId('department_id')->constrained('departamentos', 'id');
