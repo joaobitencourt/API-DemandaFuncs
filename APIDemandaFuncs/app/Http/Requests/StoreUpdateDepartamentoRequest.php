@@ -24,5 +24,6 @@ class StoreUpdateDepartamentoRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:255'
         ];
+
     }
 }

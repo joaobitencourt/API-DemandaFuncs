@@ -41,6 +41,20 @@ class DepartamentoController extends Controller
 
     }
 
+    //Update expecific department
+    public function update(StoreUpdateDepartamentoRequest $request, string $id){
+        $departamento = $this->departamento->findOrFail($id);
+
+        $data = $request->validated();
+        if($request->password){
+            $data['password'] = bcrypt($request->password);
+        }
+        $departamento->update($data);
+
+        return new DepartamentosResource($departamento);
+
+    }
+
     //Delete expecific department
     public function destroy(string $id){
         $this->departamento->findOrFail($id)->delete();
